@@ -1,1 +1,1 @@
-import * as gulp from 'gulp'
+import * as gulp from 'gulp';

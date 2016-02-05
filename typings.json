@@ -4,7 +4,9 @@
   "ambientDependencies": {
     "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#1c56e368e17bb28ca57577250624ca5bd561aa81"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "file:gulp.d.ts"
+  },
   "dependencies": {
     "orchestrator": "github:typings/typed-orchestrator#22b04f8621e66fcc6c44dae198327d9e6ba5fd0c"
   }
