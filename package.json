@@ -1,0 +1,27 @@
+{
+  "name": "typings-npm-gulp",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Typescript typings for gulpjs",
+  "scripts": {
+    "build": "npm run prepare && npm run bundle && npm run build-ts",
+    "prepare": "echo installing typings... && cd 3.9.1 && typings install && cd ../4.0.0-alpha.2 && typings install",
+    "build-ts": "echo building... && tsc -p 3.9.1 & tsc -p 4.0.0-alpha.2",
+    "bundle": "echo bundling... && cd 3.9.1 && typings bundle -o out/index.d.ts && cd ../4.0.0-alpha.2 && typings bundle -o out/index.d.ts",
+    "test": "echo runing tests... && tsc -p 3.9.1/test & tsc -p 4.0.0-alpha.2/test",
+    "build+test": "npm run build && npm run test",
+    "cleanup-typings": "echo Removing typings folders... && for /d /r . %d in (typings) do @if exist %d rd /s/q %d",
+    "cleanup-out": "echo Removing out folders... && for /d /r . %d in (out) do @if exist %d rd /s/q %d",
+    "cleanup": "npm run cleanup-typings && npm run cleanup-out"
+  },
+  "author": "Giedrius Grabauskas <https://github.com/GiedriusGrabauskas>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/typed-typings/npm-gulp/issues"
+  },
+  "homepage": "https://github.com/typed-typings/npm-gulp",
+  "devDependencies": {
+    "typescript": "^1.8.10",
+    "typings": "^1.0.4"
+  }
+}

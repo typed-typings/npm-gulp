@@ -1,0 +1,19 @@
+{
+  "name": "gulp",
+  "homepage": "https://gulpjs.com/",
+  "version": "4.0.0-alpha.2",
+  "main": "index.d.ts",
+  "globalDependencies": {
+    "chokidar": "registry:dt/chokidar#1.4.3+20160316155526",
+    "glob": "registry:dt/glob#5.0.10+20160317120654",
+    "glob-stream": "registry:dt/glob-stream#3.1.12+20160316155526",
+    "minimatch": "registry:dt/minimatch#2.0.8+20160317120654",
+    "node": "registry:dt/node#6.0.0+20160602155235",
+    "undertaker": "registry:dt/undertaker#0.12.0+20160316155526",
+    "vinyl": "registry:dt/vinyl#1.1.0+20160316155526",
+    "vinyl-fs": "registry:dt/vinyl-fs#0.0.0+20160317120654"
+  },
+  "dependencies": {
+    "orchestrator": "registry:npm/orchestrator#0.3.7+20160211003958"
+  }
+}
