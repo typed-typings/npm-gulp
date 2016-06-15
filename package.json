@@ -1,0 +1,44 @@
+{
+  "name": "typings-npm-gulp",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Typescript typings for gulpjs",
+  "scripts": {
+    "prepare": "echo Starting preparing... && npm run prepare-3.8.0 & npm run prepare-3.9.1 & npm run prepare-4.0.0-alpha.2 && echo Prepare completed.",
+    "prepare-3.8.0": "echo Installing typings in 3.8.0... && cd 3.8.0 && typings install",
+    "prepare-3.9.1": "echo Installing typings in 3.9.1... && cd 3.9.1 && typings install",
+    "prepare-4.0.0-alpha.2": "echo Installing typings in 4.0.0-alpha.2... && cd 4.0.0-alpha.2 && typings install",
+  
+    "build-ts": "echo Starting building... &&  npm run build-ts-3.8.0 & npm run build-ts-3.9.1 & npm run build-ts-4.0.0-alpha.2  && echo Build typescript completed.",
+    "build-ts-3.8.0": "echo Building typescript in 3.8.0... && tsc -p 3.8.0",
+    "build-ts-3.9.1": "echo Building typescript in 3.9.1... && tsc -p 3.9.1",
+    "build-ts-4.0.0-alpha.2": "echo Building typescript in 4.0.0-alpha.2... && tsc -p 4.0.0-alpha.2",
+    
+    "bundle": "echo Starting bundling... && npm run bundle-3.8.0 & npm run bundle-3.9.1 & npm run bundle-4.0.0-alpha.2",
+    "bundle-3.8.0": "echo Bundling typings in 3.8.0... && cd 3.8.0 && typings bundle -o out/index.d.ts",
+    "bundle-3.9.1": "echo Bundling typings in 3.9.1... && cd 3.9.1 && typings bundle -o out/index.d.ts",
+    "bundle-4.0.0-alpha.2": "echo Bundling typings in 4.0.0-alpha.2... && cd 4.0.0-alpha.2 && typings bundle -o out/index.d.ts",
+    
+    "test": "echo Starting tests... && npm run test-3.8.0 & npm run test-3.9.1 & npm run test-4.0.0-alpha.2",
+    "test-3.8.0": "echo Runing test in 3.8.0... && tsc -p 3.8.0/test && echo Test in 3.8.0 successfully completed.",
+    "test-3.9.1": "echo Runing test in 3.9.1... && tsc -p 3.9.1/test && echo Test in 3.9.1 successfully completed.",
+    "test-4.0.0-alpha.2": "echo Runing test in 4.0.0-alpha.2... && tsc -p 4.0.0-alpha.2/test && echo Test in 4.0.0-alpha.2 successfully completed.",
+    
+    "build": "npm run build-ts && npm run bundle",  
+    "build+test": "npm run prepare && npm run build && npm run test",
+    
+    "cleanup-typings": "echo Removing typings folders... && for /d /r . %d in (typings) do @if exist %d rd /s/q %d",
+    "cleanup-out": "echo Removing out folders... && for /d /r . %d in (out) do @if exist %d rd /s/q %d",
+    "cleanup": "npm run cleanup-typings && npm run cleanup-out"
+  },
+  "author": "Giedrius Grabauskas <https://github.com/GiedriusGrabauskas>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/typed-typings/npm-gulp/issues"
+  },
+  "homepage": "https://github.com/typed-typings/npm-gulp",
+  "devDependencies": {
+    "typescript": "^1.8.10",
+    "typings": "^1.0.4"
+  }
+}

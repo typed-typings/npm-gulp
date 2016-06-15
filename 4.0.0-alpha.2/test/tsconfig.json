@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module" : "commonjs",
+    "outDir": "out"
+  },
+  "files": [
+    "test.ts",
+    "../out/index.d.ts",
+    "../typings/index.d.ts"
+  ]
+}

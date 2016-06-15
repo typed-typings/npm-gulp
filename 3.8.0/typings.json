@@ -1,0 +1,12 @@
+{
+  "name": "gulp",
+  "homepage": "https://gulpjs.com/",
+  "version": "3.8.0",
+  "main": "index.d.ts",
+  "globalDependencies": {
+    "node": "registry:dt/node#6.0.0+20160602155235"
+  },
+  "dependencies": {
+    "orchestrator": "registry:npm/orchestrator#0.3.7+20160211003958"
+  }
+}
