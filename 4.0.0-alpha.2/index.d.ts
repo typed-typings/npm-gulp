@@ -100,11 +100,13 @@ declare namespace GulpClient {
         /**
          * Define a task exposed to gulp-cli, gulp.series, gulp.parallel and gulp.lastRun; inherited from undertaker.
          * @param name The name argument is required if the name and displayName properties of fn are empty.
+         * @param dependencies The gulp tasks to run before starting this one.
          * @param fn The function that performs the task's operations.
          */
         task(fn: TaskFunction): TaskFunction;
         task(name: string): TaskFunction;
         task(name: string, fn: TaskFunction): TaskFunction;
+        task(name: string, dependencies: string[], fn: TaskFunction): TaskFunction;
 
         /**
          * Returns the timestamp of the last time the task ran successfully. The time will be the time the task started.
