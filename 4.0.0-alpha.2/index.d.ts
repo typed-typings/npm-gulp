@@ -105,6 +105,7 @@ declare namespace GulpClient {
          */
         task(fn: TaskFunction): TaskFunction;
         task(name: string): TaskFunction;
+        task(name: string, tasks: string[]): TaskFunction;
         task(name: string, fn: TaskFunction): TaskFunction;
         task(name: string, dependencies: string[], fn: TaskFunction): TaskFunction;
 
