@@ -4,9 +4,9 @@
   "version": "3.8.0",
   "main": "index.d.ts",
   "globalDependencies": {
-    "node": "registry:dt/node#6.0.0+20160602155235"
+    "node": "registry:env/node#6.0.0+20160813135048"
   },
   "dependencies": {
-    "orchestrator": "registry:npm/orchestrator#0.3.7+20160211003958"
+    "orchestrator": "registry:npm/orchestrator#0.3.7+20160723033700"
   }
 }

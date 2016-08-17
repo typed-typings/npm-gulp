@@ -4,7 +4,7 @@
 
 import * as vfs from "vinyl-fs";
 import * as chokidar from "chokidar";
-import * as undertaker from "undertaker";
+import Undertaker = require('undertaker');
 import * as fs from 'fs';
 import { Duplex } from 'stream';
 
@@ -15,7 +15,7 @@ declare namespace GulpClient {
   type TasksArray<T> = Array<string | TaskFunction | T>;
   type Task = TasksArray<TasksArray<any>> | string | TaskFunction;
 
-  interface Options extends vfs.ISrcOptions {
+  interface Options extends vfs.SrcOptions {
     /**
      * When true, will allow singular globs to fail to match. Otherwise, globs which are only supposed to match one
      * file (such as ./foo/bar.js) will cause an error to be thrown if they don't match.
@@ -155,7 +155,7 @@ declare namespace GulpClient {
      */
     tree(options?: TreeOptions): any;
 
-    registry(registry?: undertaker.Registry): undertaker.Registry;
+    registry(registry?: Undertaker.Registry): Undertaker.Registry;
   }
 
   interface TreeOptions {
