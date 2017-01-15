@@ -5,7 +5,21 @@
 import Orchestrator = require("orchestrator");
 import {dest, src, watch} from "vinyl-fs";
 
-declare class Gulp extends Orchestrator {
+declare interface RunMethod {
+  /**
+   * Run the "default" task
+   * @deprecated will be removed in gulp 4.0. Use task dependencies instead.
+   */
+  (): void;
+  /**
+   * Run a previously defined task
+   * @param taskName The name of the task to run (optional)
+   * @deprecated will be removed in gulp 4.0. Use task dependencies instead.
+   */
+  (taskName: string): void;
+}
+
+declare interface GulpPrototype {
   dest: typeof dest;
   src: typeof src;
   /**
@@ -24,22 +38,15 @@ declare class Gulp extends Orchestrator {
   /**
    * The class is a member of itself so that packages can create seperate instances of gulp
    */
-  Gulp: typeof Gulp;
+  Gulp: GulpStatic;
 }
 
-declare interface RunMethod {
-  /**
-   * Run the "default" task
-   * @deprecated will be removed in gulp 4.0. Use task dependencies instead.
-   */
-  (): void;
-  /**
-   * Run a previously defined task
-   * @param taskName The name of the task to run (optional)
-   * @deprecated will be removed in gulp 4.0. Use task dependencies instead.
-   */
-  (taskName: string): void;
+declare type Gulp = GulpPrototype;
+
+declare interface GulpStatic {
+  new (): Gulp;
+  prototype: GulpPrototype;
 }
 
-declare let inst: Gulp;
+declare let inst: GulpPrototype;
 export = inst;
