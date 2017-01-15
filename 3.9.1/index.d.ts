@@ -2,8 +2,31 @@
 // Project: http://gulpjs.com
 // Definitions by: Marcel Mundl <Marcel@Mundlhome.de>
 
-import Orchestrator = require("orchestrator");
-import {dest, src, watch} from "vinyl-fs";
+import * as Orchestrator from "orchestrator";
+import {dest, src} from "vinyl-fs";
+import {EventEmitter} from "events";
+
+// ** hotfix for watch() not being in typings (copied over from @types/vinyl-fs) **
+
+/**
+ * This is just a glob-watcher
+ *
+ * @param globs Takes a glob string or an array of glob strings as the first argument
+ * Globs are executed in order, so negations should follow positive globs
+ * fs.src(['!b*.js', '*.js']) would not exclude any files, but this would: fs.src(['*.js', '!b*.js'])
+ */
+declare function watch(globs: string|string[], cb?: (outEvt: { type: any; path: any; old: any; }) => void): EventEmitter;
+
+/**
+ * This is just a glob-watcher
+ *
+ * @param globs Takes a glob string or an array of glob strings as the first argument
+ * Globs are executed in order, so negations should follow positive globs
+ * fs.src(['!b*.js', '*.js']) would not exclude any files, but this would: fs.src(['*.js', '!b*.js'])
+ */
+declare function watch(globs: string|string[], opt?: { interval?: number; debounceDelay?: number; cwd?: string; maxListeners?: Function; }, cb?: (outEvt: { type: any; path: any; old: any; }) => void): EventEmitter;
+
+// ** hotfix end **
 
 declare interface RunMethod {
   /**
