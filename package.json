@@ -33,8 +33,6 @@
   },
   "homepage": "https://github.com/typed-typings/npm-gulp",
   "devDependencies": {
-    "@types/orchestrator": "0.0.30",
-    "@types/vinyl-fs": "0.0.28",
     "typescript": "^1.8.10",
     "typings": "^1.0.4"
   }
