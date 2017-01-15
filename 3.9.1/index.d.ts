@@ -19,7 +19,7 @@ declare interface RunMethod {
   (taskName: string): void;
 }
 
-declare interface GulpPrototype {
+declare interface Gulp {
   dest: typeof dest;
   src: typeof src;
   /**
@@ -41,12 +41,10 @@ declare interface GulpPrototype {
   Gulp: GulpStatic;
 }
 
-declare type Gulp = GulpPrototype;
-
 declare interface GulpStatic {
   new (): Gulp;
-  prototype: GulpPrototype;
+  prototype: Gulp;
 }
 
-declare let inst: GulpPrototype;
+declare let inst: Gulp;
 export = inst;
