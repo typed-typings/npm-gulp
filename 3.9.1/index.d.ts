@@ -3,7 +3,8 @@
 // Definitions by: Marcel Mundl <Marcel@Mundlhome.de>
 
 import * as Orchestrator from "orchestrator";
-import {dest, src} from "vinyl-fs";
+// TODO: uncomment watch once typings is ok again
+import {dest, src, /* watch */} from "vinyl-fs";
 import {EventEmitter} from "events";
 
 // ** hotfix for watch() not being in typings (copied over from @types/vinyl-fs) **
