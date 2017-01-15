@@ -7,6 +7,7 @@
     "node": "registry:env/node#6.0.0+20160813135048"
   },
   "dependencies": {
-    "orchestrator": "registry:npm/orchestrator#0.3.7+20160723033700"
+    "orchestrator": "registry:npm/orchestrator#0.3.7+20160723033700",
+    "vinyl-fs": "registry:npm/vinyl-fs#2.4.3+20160817102725"
   }
 }
