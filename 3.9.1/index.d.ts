@@ -2,6 +2,10 @@
 // Project: http://gulpjs.com
 // Definitions by: Marcel Mundl <Marcel@Mundlhome.de>
 
+/// <reference types="orchestrator"/>
+/// <reference types="vinyl-fs"/>
+/// <reference types="node"/>
+
 import * as Orchestrator from "orchestrator";
 import {dest, src} from "vinyl-fs";
 import {EventEmitter} from "events";
