@@ -1,8 +1,8 @@
 
 import * as gulp from 'gulp';
 
-var typescript: gulp.GulpPlugin = null; // this would be the TypeScript compiler
-var jasmine: gulp.GulpPlugin = null; // this would be the jasmine test runner
+var typescript: Function = null; // this would be the TypeScript compiler
+var jasmine: Function = null; // this would be the jasmine test runner
 
 
 gulp.task('compile', function()
