@@ -5,9 +5,9 @@
 import * as Orchestrator from "orchestrator";
 import { dest, src, WatchOptions } from "vinyl-fs";
 import { EventEmitter } from "events";
-import {OutEvent} from "vinyl-fs";
+import { OutEvent } from "vinyl-fs";
 
-declare type task = string | ((outEvt: OutEvent) => void);
+declare type Task = string | ((outEvent: OutEvent) => void);
 
 declare interface Gulp {
   dest: typeof dest;
@@ -38,8 +38,8 @@ declare interface Gulp {
    * @param globs
    * @param tasks
    */
-  watch(globs?: string | Array<string>, tasks?: task | Array<task>): EventEmitter;
-  watch(globs?: string | Array<string>, opt?: WatchOptions, tasks?: task | Array<task>): EventEmitter;
+  watch(globs?: string | Array<string>, tasks?: Task | Array<Task>): EventEmitter;
+  watch(globs?: string | Array<string>, opt?: WatchOptions, tasks?: Task | Array<Task>): EventEmitter;
 
   /**
    * The class is a member of itself so that packages can create seperate instances of gulp
