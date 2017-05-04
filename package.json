@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/typed-typings/npm-gulp",
   "devDependencies": {
-    "typescript": "^1.8.10",
-    "typings": "^1.0.4"
+    "typescript": "^2.3.2",
+    "typings": "^2.1.1"
   }
 }
