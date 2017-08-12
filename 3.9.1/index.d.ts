@@ -38,8 +38,8 @@ declare interface Gulp {
    * @param globs
    * @param tasks
    */
-  watch(globs?: string | Array<string>, tasks?: Task | Array<Task>): EventEmitter;
-  watch(globs?: string | Array<string>, opt?: WatchOptions, tasks?: Task | Array<Task>): EventEmitter;
+  watch(globs?: string | string[], tasks?: Task | Task[]): EventEmitter;
+  watch(globs?: string | string[], opt?: WatchOptions, tasks?: Task | Task[]): EventEmitter;
 
   /**
    * The class is a member of itself so that packages can create seperate instances of gulp
