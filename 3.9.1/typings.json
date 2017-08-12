@@ -8,6 +8,6 @@
   },
   "dependencies": {
     "orchestrator": "registry:npm/orchestrator#0.3.7+20160723033700",
-    "vinyl-fs": "registry:npm/vinyl-fs#2.4.3+20160817102725"
+    "vinyl-fs": "registry:npm/vinyl-fs#0.3.14+20170122224736"
   }
 }

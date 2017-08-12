@@ -3,45 +3,11 @@
 // Definitions by: Marcel Mundl <Marcel@Mundlhome.de>
 
 import * as Orchestrator from "orchestrator";
-// TODO: uncomment watch once typings is ok again
-import {dest, src, /* watch */} from "vinyl-fs";
-import {EventEmitter} from "events";
+import { dest, src, WatchOptions } from "vinyl-fs";
+import { EventEmitter } from "events";
+import { OutEvent } from "vinyl-fs";
 
-// ** hotfix for watch() not being in typings (copied over from @types/vinyl-fs) **
-
-/**
- * This is just a glob-watcher
- *
- * @param globs Takes a glob string or an array of glob strings as the first argument
- * Globs are executed in order, so negations should follow positive globs
- * fs.src(['!b*.js', '*.js']) would not exclude any files, but this would: fs.src(['*.js', '!b*.js'])
- */
-declare function watch(globs: string|string[], cb?: (outEvt: { type: any; path: any; old: any; }) => void): EventEmitter;
-
-/**
- * This is just a glob-watcher
- *
- * @param globs Takes a glob string or an array of glob strings as the first argument
- * Globs are executed in order, so negations should follow positive globs
- * fs.src(['!b*.js', '*.js']) would not exclude any files, but this would: fs.src(['*.js', '!b*.js'])
- */
-declare function watch(globs: string|string[], opt?: { interval?: number; debounceDelay?: number; cwd?: string; maxListeners?: Function; }, cb?: (outEvt: { type: any; path: any; old: any; }) => void): EventEmitter;
-
-// ** hotfix end **
-
-declare interface RunMethod {
-  /**
-   * Run the "default" task
-   * @deprecated will be removed in gulp 4.0. Use task dependencies instead.
-   */
-  (): void;
-  /**
-   * Run a previously defined task
-   * @param taskName The name of the task to run (optional)
-   * @deprecated will be removed in gulp 4.0. Use task dependencies instead.
-   */
-  (taskName: string): void;
-}
+declare type Task = string | ((outEvent: OutEvent) => void);
 
 declare interface Gulp {
   dest: typeof dest;
@@ -57,8 +23,24 @@ declare interface Gulp {
    * </ul>
    */
   task: typeof Orchestrator.prototype.add;
-  run: RunMethod;
-  watch: typeof watch;
+  /**
+   * Run the specified task(s)
+   * @deprecated will be removed in gulp 4.0. Use task dependencies instead.
+   */
+  run: typeof Orchestrator.prototype.start;
+  /**
+   * Run the specified task(s)
+   * @deprecated will be removed in gulp 4.0. Use task dependencies instead.
+   */
+  start: typeof Orchestrator.prototype.start;
+  /**
+   * watches all files in the specified glob(s) for changes and runs the given task(s).
+   * @param globs
+   * @param tasks
+   */
+  watch(globs?: string | string[], tasks?: Task | Task[]): EventEmitter;
+  watch(globs?: string | string[], opt?: WatchOptions, tasks?: Task | Task[]): EventEmitter;
+
   /**
    * The class is a member of itself so that packages can create seperate instances of gulp
    */
@@ -67,6 +49,7 @@ declare interface Gulp {
 
 declare interface GulpStatic {
   new (): Gulp;
+  (): Gulp;
   prototype: Gulp;
 }
 
